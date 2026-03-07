@@ -1,0 +1,15 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+SIZE	/home/mattegiorgi/docs/algoritmi/sorting.c	6;"	d	file:
+arr	/home/mattegiorgi/docs/algoritmi/sorting.c	9;"	v	file:
+insertion	/home/mattegiorgi/docs/algoritmi/sorting.c	64;"	f
+main	/home/mattegiorgi/docs/algoritmi/sorting.c	17;"	f
+pprint	/home/mattegiorgi/docs/algoritmi/sorting.c	53;"	f	file:
+runsort	/home/mattegiorgi/docs/algoritmi/sorting.c	34;"	f	file:
+selection	/home/mattegiorgi/docs/algoritmi/sorting.c	75;"	f
+seq	/home/mattegiorgi/docs/algoritmi/sorting.c	9;"	v	file:
+swap	/home/mattegiorgi/docs/algoritmi/sorting.c	45;"	f	file:
