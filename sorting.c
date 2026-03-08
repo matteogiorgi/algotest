@@ -14,7 +14,8 @@ void insertion(int*, int*);
 void selection(int*, int*);
 
 
-int main(void) {
+int main(void)
+{
     if (!(arr = malloc(SIZE * sizeof *arr))) {
         perror("malloc");
         return 1;
