@@ -12,6 +12,8 @@ static inline void swap(int*, int*);
 static void pprint(int*, int*);
 void insertion(int*, int*);
 void selection(int*, int*);
+void mergesort(int*, int*);
+void quicksort(int*, int*);
 
 
 int main(void)
@@ -26,6 +28,12 @@ int main(void)
 
     printf("\nSELECTION SORT\n");
     runsort(selection, arr, arr + SIZE);
+
+    printf("\nMERGE SORT\n");
+    runsort(mergesort, arr, arr + SIZE);
+
+    printf("\nQUICK SORT\n");
+    runsort(quicksort, arr, arr + SIZE);
 
     free(arr);
     return 0;
@@ -81,4 +89,52 @@ void selection(int *begin, int *end)
             if (*j < *min) min = j;
         swap(min, i);
     }
+}
+
+
+void mergesort(int *begin, int *end)
+{
+    if (end - begin < 2) return;
+
+    int *mid = begin + (end - begin) / 2;
+    mergesort(begin, mid);
+    mergesort(mid, end);
+
+    int *tmp = malloc((end - begin) * sizeof *tmp);
+    if (!tmp) {
+        perror("malloc");
+        exit(1);
+    }
+
+    int *i = begin, *j = mid, *k = tmp;
+    while (i < mid && j < end)
+        *k++ = (*i < *j) ? *i++ : *j++;
+
+    while (i < mid)
+        *k++ = *i++;
+
+    while (j < end)
+        *k++ = *j++;
+
+    memcpy(begin, tmp, (end - begin) * sizeof *begin);
+    free(tmp);
+}
+
+
+void quicksort(int *begin, int *end)
+{
+    if (end - begin < 2) return;
+
+    int *pivot = end - 1;
+    int *i = begin, *j = end - 2;
+
+    while (i <= j) {
+        while (i <= j && *i < *pivot) i++;
+        while (i <= j && *j >= *pivot) j--;
+        if (i < j) swap(i, j);
+    }
+    swap(i, pivot);
+
+    quicksort(begin, i);
+    quicksort(i + 1, end);
 }
