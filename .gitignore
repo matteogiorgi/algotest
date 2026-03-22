@@ -1,4 +1,3 @@
 tags
-.vscode/*
 bin/*
 !bin/.gitkeep

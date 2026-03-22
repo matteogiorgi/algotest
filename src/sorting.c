@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "sorting.h"
 
 
 #define SIZE 10
@@ -10,10 +11,6 @@ static int *arr, seq[SIZE] = {99, 56, 2, 3, 5, 7, 9, 22, 1, 3};
 static void runsort(void (*)(int*, int*), int*, int*);
 static inline void swap(int*, int*);
 static void pprint(int*, int*);
-void insertion(int*, int*);
-void selection(int*, int*);
-void mergesort(int*, int*);
-void quicksort(int*, int*);
 
 
 int main(void)
