@@ -62,6 +62,7 @@ static void pprint(int *begin, int *end)
         printf("\n");
         return;
     }
+
     printf("%d ", *begin);
     pprint(begin + 1, end);
 }
@@ -71,8 +72,10 @@ void insertion(int *begin, int *end)
 {
     for (int *j = begin + 1; j < end; j++) {
         int *i, key = *j;
+
         for (i = j; i > begin && *(i-1) > key; i--)
             *i = *(i-1);
+
         *i = key;
     }
 }
@@ -82,8 +85,10 @@ void selection(int *begin, int *end)
 {
     for (int *i = begin; i < end - 1; i++) {
         int *min = i;
+
         for (int *j = i + 1; j < end; j++)
             if (*j < *min) min = j;
+
         swap(min, i);
     }
 }
@@ -91,19 +96,25 @@ void selection(int *begin, int *end)
 
 void mergesort(int *begin, int *end)
 {
-    if (end - begin < 2) return;
+    if (end - begin < 2)
+        return;
 
     int *mid = begin + (end - begin) / 2;
+
     mergesort(begin, mid);
     mergesort(mid, end);
 
     int *tmp = malloc((end - begin) * sizeof *tmp);
+
     if (!tmp) {
         perror("malloc");
         exit(1);
     }
 
-    int *i = begin, *j = mid, *k = tmp;
+    int *i = begin,
+        *j = mid,
+        *k = tmp;
+
     while (i < mid && j < end)
         *k++ = (*i < *j) ? *i++ : *j++;
 
@@ -120,18 +131,22 @@ void mergesort(int *begin, int *end)
 
 void quicksort(int *begin, int *end)
 {
-    if (end - begin < 2) return;
+    if (end - begin < 2)
+        return;
 
     int *pivot = end - 1;
-    int *i = begin, *j = end - 2;
+    int *i = begin,
+        *j = end - 2;
 
     while (i <= j) {
         while (i <= j && *i < *pivot) i++;
         while (i <= j && *j >= *pivot) j--;
-        if (i < j) swap(i, j);
-    }
-    swap(i, pivot);
 
+        if (i < j)
+            swap(i, j);
+    }
+
+    swap(i, pivot);
     quicksort(begin, i);
     quicksort(i + 1, end);
 }
