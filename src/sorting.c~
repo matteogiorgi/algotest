@@ -82,7 +82,8 @@ void insertion(int *begin, int *end)
 }
 
 
-void selection(int *begin, int *end)
+void
+selection(int *begin, int *end)
 {
     for (int *i = begin; i < end - 1; i++) {
         int *min = i;
